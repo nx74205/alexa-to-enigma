@@ -1,13 +1,13 @@
 {
   "session": {
     "new": true,
-    "sessionId": "SessionId.d66e92a9-4cf0-44ee-bf7f-232c8beea25c",
+    "sessionId": "SessionId.xxxxxxxx-yyyy-zzzz-aaaa-bbbbbbbbbbbb",
     "application": {
       "applicationId": "amzn1.ask.skill.d06894cf-8e95-4bb8-bf75-27d130651f32"
     },
     "attributes": {},
     "user": {
-      "userId": "amzn1.ask.account.AGAF5NOK3D2XIZDUSPPH6SN3SSFRUCVN4WQ2QBNERBKLJ7I4EREILATTN62GFBOEY3YF2UYKWQSLX6LSYOM6VAMRI7MNWYBOPXBSPLGVWXKNAUIHDBHHUKQGJU2YNMOLSM34A6QM62QOSGXMNW3SLJD5HXK6VTZXNW76HBIRDHOGXSTBD5PCP7ZSCPFHJQY7PQPWYEYFA24EB7Q"
+      "userId": "amzn1.ask.account.***************************************************************************************************************************************************************************************************************"
     }
   },
   "request": {
@@ -29,7 +29,7 @@
         "applicationId": "amzn1.ask.skill.d06894cf-8e95-4bb8-bf75-27d130651f32"
       },
       "user": {
-        "userId": "amzn1.ask.account.AGAF5NOK3D2XIZDUSPPH6SN3SSFRUCVN4WQ2QBNERBKLJ7I4EREILATTN62GFBOEY3YF2UYKWQSLX6LSYOM6VAMRI7MNWYBOPXBSPLGVWXKNAUIHDBHHUKQGJU2YNMOLSM34A6QM62QOSGXMNW3SLJD5HXK6VTZXNW76HBIRDHOGXSTBD5PCP7ZSCPFHJQY7PQPWYEYFA24EB7Q"
+        "userId": "amzn1.ask.account.***************************************************************************************************************************************************************************************************************"
       },
       "device": {
         "supportedInterfaces": {}
@@ -38,3 +38,4 @@
   },
   "version": "1.0"
 }
+
