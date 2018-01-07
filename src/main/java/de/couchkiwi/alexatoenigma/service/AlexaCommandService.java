@@ -4,7 +4,7 @@ import de.couchkiwi.alexatoenigma.model.EnigmaRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 
-@Service
+@Component
 public class AlexaCommandService {
 
     @Value(("${alexa_command_file}"))
@@ -52,7 +52,7 @@ public class AlexaCommandService {
                 commandline.put(str[0], e);
             }
         }
-        log.info(String.format("Got %d REcords from CSV", commandline.size()));
+        log.info(String.format("Got %d Records from CSV", commandline.size()));
 
     }
 

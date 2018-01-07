@@ -1,0 +1,23 @@
+{
+	"receivers": [ 
+		{
+			"receivermodell": "ET7500",
+			"applianceaddress": "192.168.0.106",
+			"receivertyp": "Enigma2WithWol",
+			"capabilities": [
+				"Alexa.PowerController",
+				"Alexa.Speaker"
+			]
+		},
+		{
+			"receivermodell": "ET9000",
+			"applianceaddress": "192.168.0.107",
+            "receivertyp": "Enigma2",
+            "capabilities": [
+				"Alexa.PowerController",
+				"Alexa.Speaker"
+			]
+		}		
+	]
+
+}
