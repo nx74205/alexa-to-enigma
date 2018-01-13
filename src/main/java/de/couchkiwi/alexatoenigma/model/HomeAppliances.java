@@ -16,8 +16,17 @@ public class HomeAppliances implements Serializable {
     public static class Receivers  {
         private String receivermodell;
         private String applianceaddress;
+        private String applianceport;
         private String receivertyp;
         private String[] capabilities;
+
+        public String getApplianceport() {
+            return applianceport;
+        }
+
+        public void setApplianceport(String applianceport) {
+            this.applianceport = applianceport;
+        }
 
         public String getApplianceaddress() {
             return applianceaddress;

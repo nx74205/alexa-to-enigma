@@ -2,7 +2,8 @@
 	"receivers": [ 
 		{
 			"receivermodell": "ET7500",
-			"applianceaddress": "192.168.0.106",
+			"applianceaddress": "192.168.0.106:6411",
+			"applianceport": "6411",
 			"receivertyp": "Enigma2WithWol",
 			"capabilities": [
 				"Alexa.PowerController",
@@ -12,6 +13,7 @@
 		{
 			"receivermodell": "ET9000",
 			"applianceaddress": "192.168.0.107",
+			"applianceport": "80",
             "receivertyp": "Enigma2",
             "capabilities": [
 				"Alexa.PowerController",

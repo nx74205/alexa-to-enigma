@@ -44,7 +44,7 @@ public class ConnectAppliances {
         receivers = homeAppliances.getReceivers();
 
         for ( int i=0; i < receivers.length; i++) {
-            CallEnigmaHubService cehs = new CallEnigmaHubService("https://nx74205.chickenkiller.com:443", "/commands", receivers[i], alexaCommandService);
+            CallEnigmaHubService cehs = new CallEnigmaHubService("https://enigmahub.swimming-kiwi.de:443", "/commands", receivers[i], alexaCommandService);
             cehs.start();
 
         }

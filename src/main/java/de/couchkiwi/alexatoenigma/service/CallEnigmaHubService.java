@@ -71,7 +71,7 @@ public class CallEnigmaHubService extends Thread {
                     if (!response.getAlexaCommand().equals("NO_COMMAND")) {
                         log.debug("Calling Receiver! with " + response.getAlexaCommand());
                         ReceiverCommand rc = new ReceiverCommand(alexaCommandService);
-                        rc.call(response.getAlexaCommand(), receivers.getApplianceaddress(), 1);
+                        rc.call(response.getAlexaCommand(), receivers.getApplianceaddress()+":"+receivers.getApplianceport(), 1);
                     }
 
 
