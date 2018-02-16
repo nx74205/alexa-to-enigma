@@ -1,8 +1,9 @@
 {
+	"idToken": "118797173",
 	"receivers": [ 
 		{
 			"receivermodell": "ET7500",
-			"applianceaddress": "192.168.0.106:6411",
+			"applianceaddress": "192.168.0.106",
 			"applianceport": "6411",
 			"receivertyp": "Enigma2WithWol",
 			"capabilities": [

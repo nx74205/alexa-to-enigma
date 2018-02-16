@@ -3,7 +3,16 @@ package de.couchkiwi.alexatoenigma.model;
 import java.io.Serializable;
 
 public class HomeAppliances implements Serializable {
+    private String idToken;
     private Receivers[] receivers;
+
+    public String getIdToken() {
+        return idToken;
+    }
+
+    public void setIdToken(String idToken) {
+        this.idToken = idToken;
+    }
 
     public Receivers[] getReceivers() {
         return receivers;

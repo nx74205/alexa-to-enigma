@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class EnigmaToHubResponse implements Serializable {
 
-    private String eMailAddress;
+    private String idToken;
     private String receiverModell;
     private String alexaCommand;
     private String EnigmaApi;
     private String Enigmaparameter;
 
-    public String geteMailAddress() {
-        return eMailAddress;
+    public String getIdToken() {
+        return idToken;
     }
 
-    public void seteMailAddress(String eMailAddress) {
-        this.eMailAddress = eMailAddress;
+    public void setIdToken(String idToken) {
+        this.idToken = idToken;
     }
 
     public String getReceiverModell() {
@@ -54,7 +54,7 @@ public class EnigmaToHubResponse implements Serializable {
     public String toString() {
         String result;
 
-        result = String.format("E-Mail: %s * ReceiverModell: %s * AlexaCommand %s", this.eMailAddress, this.receiverModell, this.alexaCommand);
+        result = String.format("Token: %s * Modell: %s * Command %s * Parameter %s", this.idToken, this.receiverModell, this.alexaCommand, this.Enigmaparameter);
 
         return String.format(result);
     }

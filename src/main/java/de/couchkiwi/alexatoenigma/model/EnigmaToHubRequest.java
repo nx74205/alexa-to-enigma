@@ -4,8 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
+
 public class EnigmaToHubRequest implements Serializable {
-    private String eMailAddress;
+    private String idToken;
     private String receiverModell;
     private List<String> capabilities;
     private Timestamp timestamp;
@@ -26,12 +27,12 @@ public class EnigmaToHubRequest implements Serializable {
         this.capabilities = capabilities;
     }
 
-    public String geteMailAddress() {
-        return eMailAddress;
+    public String getIdToken() {
+        return idToken;
     }
 
-    public void seteMailAddress(String eMailAddress) {
-        this.eMailAddress = eMailAddress;
+    public void setIdToken(String eMailAddress) {
+        this.idToken = eMailAddress;
     }
 
     public String getReceiverModell() {
@@ -46,7 +47,7 @@ public class EnigmaToHubRequest implements Serializable {
     public String toString() {
         String result;
 
-        result = "E-Mail: " + this.eMailAddress + " * " +
+        result = "ID-Token: " + this.idToken + " * " +
                  "ReceiverModell: " + this.receiverModell + " * ";
 
         for (String entry : capabilities) {

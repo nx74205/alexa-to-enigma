@@ -16,11 +16,15 @@ public class ConnectAppliances {
 
     private HomeAppliances.Receivers[] receivers;
     private HomeAppliances homeAppliances;
+    private String idToken;
 
     private final org.slf4j.Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Value(("${receivers_config}"))
     private String fileName;
+
+    @Value(("${enigma_hub}"))
+    private String hubUrl;
 
     @Autowired
     AlexaCommandService alexaCommandService;
@@ -42,9 +46,11 @@ public class ConnectAppliances {
         }
 
         receivers = homeAppliances.getReceivers();
+        idToken = homeAppliances.getIdToken();
 
         for ( int i=0; i < receivers.length; i++) {
-            CallEnigmaHubService cehs = new CallEnigmaHubService("https://enigmahub.swimming-kiwi.de:443", "/commands", receivers[i], alexaCommandService);
+            // TODO: Needs to be implemented
+            CallEnigmaHubService cehs = new CallEnigmaHubService(hubUrl, "/commands", receivers[i], alexaCommandService, idToken);
             cehs.start();
 
         }

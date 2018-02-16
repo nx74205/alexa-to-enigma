@@ -24,12 +24,18 @@ public class CallEnigmaHubService extends Thread {
     private String endpoint;
     private HomeAppliances.Receivers receivers;
     private AlexaCommandService alexaCommandService;
+    private String idToken;
 
-    public CallEnigmaHubService(java.lang.String url, java.lang.String endpoint, HomeAppliances.Receivers receivers, AlexaCommandService alexaCommandService) {
+    public CallEnigmaHubService(String url,
+                                String endpoint,
+                                HomeAppliances.Receivers receivers,
+                                AlexaCommandService alexaCommandService,
+                                String idToken) {
         this.url = url;
         this.endpoint = endpoint;
         this.receivers = receivers;
         this.alexaCommandService = alexaCommandService;
+        this.idToken = idToken;
     }
 
     public void run() {
@@ -44,7 +50,7 @@ public class CallEnigmaHubService extends Thread {
         }
 
 
-        enigmaToHubRequest.seteMailAddress("kvolmer@kiwifans.de");
+        enigmaToHubRequest.setIdToken(idToken);
         enigmaToHubRequest.setReceiverModell(receivers.getReceivermodell());
         enigmaToHubRequest.setCapabilities(capabilities);
 
@@ -52,30 +58,27 @@ public class CallEnigmaHubService extends Thread {
 
         while (runloop) {
             if (pingAppliance(receivers.getApplianceaddress())) {
-                while (pingAppliance(receivers.getApplianceaddress())) {
 
-                    HttpHeaders headers = new HttpHeaders();
-                    headers.setContentType(MediaType.APPLICATION_JSON);
+                HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.APPLICATION_JSON);
 
-                    HttpEntity request = new HttpEntity(enigmaToHubRequest, headers);
-                    RestTemplate restTemplate = new RestTemplate();
+                HttpEntity request = new HttpEntity(enigmaToHubRequest, headers);
+                RestTemplate restTemplate = new RestTemplate();
 
-                    EnigmaToHubResponse response = null;
-                    log.debug("Starting Request!");
+                EnigmaToHubResponse response = null;
+                log.debug("Starting Request!");
 
-                    log.debug(url + endpoint);
-                    response = restTemplate.postForObject(url + endpoint, request, EnigmaToHubResponse.class);
+                log.debug(url + endpoint);
+                response = restTemplate.postForObject(url + endpoint, request, EnigmaToHubResponse.class);
 
-                    log.debug(String.format("Finished request! Respons: %s", response.toString()));
+                log.debug(String.format("Finished request! Response: %s", response.toString()));
 
-                    if (!response.getAlexaCommand().equals("NO_COMMAND")) {
-                        log.debug("Calling Receiver! with " + response.getAlexaCommand());
-                        ReceiverCommand rc = new ReceiverCommand(alexaCommandService);
-                        rc.call(response.getAlexaCommand(), receivers.getApplianceaddress()+":"+receivers.getApplianceport(), 1);
-                    }
-
-
+                if (!response.getAlexaCommand().equals("NO_COMMAND")) {
+                    log.debug("Calling Receiver! with " + response.getAlexaCommand());
+                    ReceiverCommand rc = new ReceiverCommand(alexaCommandService);
+                    rc.call(response.getAlexaCommand(), receivers.getApplianceaddress()+":"+receivers.getApplianceport(), 1);
                 }
+
             } else {
                 log.debug("Waiting 20 Seconds before next try!");
                 try
